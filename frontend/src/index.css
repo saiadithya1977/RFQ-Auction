@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6fb;
+}
+
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+
+.card {
+  background: #ffffff;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
+h2, h3 {
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+p {
+  margin: 4px 0;
+}
+
+
+.l1 {
+  border: 2px solid #22c55e;
+  background: #ecfdf5;
+}
+
+
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-closed {
+  color: red;
+  font-weight: bold;
+}
+/* AUTH PAGE */
+.auth-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6fb;
+}
+
+.auth-card {
+  width: 320px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+}
+
+.auth-card input {
+  margin-bottom: 12px;
+}
+
+.auth-card button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.auth-link {
+  margin-top: 10px;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-top: 10px;
+}
+
+h4 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #374151;
+}
+
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.closed {
+  color: red;
+  font-weight: bold;
+}
