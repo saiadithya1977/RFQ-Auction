@@ -77,7 +77,7 @@ export const getAllRFQs = async (req, res, next) => {
     const rfqs = await prisma.rFQ.findMany({
       include: {
         bids: {
-          orderBy: { totalAmount: "asc" }, // ✅ FIXED
+          orderBy: { totalAmount: "asc" }, 
         },
       },
     });
@@ -98,7 +98,7 @@ export const getRFQById = async (req, res, next) => {
       where: { id: req.params.id },
       include: {
         bids: {
-          orderBy: { totalAmount: "asc" }, // ✅ FIXED
+          orderBy: { totalAmount: "asc" }, 
         },
       },
     });
