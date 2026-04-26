@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+  role     Role
+  bids     Bid[]
+  rfqs     RFQ[]  @relation("BuyerRFQs")
+}
+
+enum Role {
+  BUYER
+  SUPPLIER
+}
+
+model RFQ {
+  id                String        @id @default(uuid())
+  name              String
+  bidStartTime      DateTime
+  bidCloseTime      DateTime
+  forcedCloseTime   DateTime
+  triggerWindow     Int
+  extensionDuration Int
+  extensionType     ExtensionType
+  status            Status        @default(ACTIVE)
+  pickupDate DateTime
+
+  buyerId String
+  buyer   User   @relation("BuyerRFQs", fields: [buyerId], references: [id])
+
+  bids Bid[]
+}
+
+model Bid {
+  id String @id @default(uuid())
+
+  rfqId      String
+  supplierId String
+
+  carrierName        String
+  freightCharges     Float
+  originCharges      Float
+  destinationCharges Float
+  transitTime        String
+  validity           String
+
+  totalAmount Float
+
+  createdAt DateTime @default(now())
+
+  rfq      RFQ  @relation(fields: [rfqId], references: [id])
+  supplier User @relation(fields: [supplierId], references: [id])
+}
+
+model ActivityLog {
+  id        String   @id @default(uuid())
+  rfqId     String
+  type      String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+enum Status {
+  ACTIVE
+  CLOSED
+  FORCE_CLOSED
+}
+
+enum ExtensionType {
+  ANY_BID
+  ANY_RANK_CHANGE
+  L1_CHANGE
+}
